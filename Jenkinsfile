@@ -1,7 +1,7 @@
 node('docker') {
 
     stage('Git checkout') {
-        git branch: 'develop', credentialsId: 'gihub-key', url: 'git@github.com:stuartshay/Navigator.ConfigurationAPI.git'
+        git branch: 'master', credentialsId: 'gihub-key', url: 'git@github.com:stuartshay/Navigator.ConfigurationAPI.git'
     }
 
    stage('Build & Deploy Docker') {
