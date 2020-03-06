@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Navigator.ConfigurationAPI.Configuration;
+using Navigator.ConfigurationAPI.ViewModels;
 
 
 namespace Navigator.ConfigurationAPI.Controllers
@@ -16,6 +17,17 @@ namespace Navigator.ConfigurationAPI.Controllers
     [Route("api/[controller]")]
     public class DiagnosticsController : Controller
     {
+        private readonly IWebHostEnvironment _env;
+
+        private readonly EndPointConfiguration _options;
+
+        public DiagnosticsController(IWebHostEnvironment env, IOptions<ApplicationOptions> options)
+        {
+            _env = env ?? throw new ArgumentNullException(nameof(env));
+            _options = options.Value.EndPointConfiguration;
+        }
+
+
         /// <summary>
         ///  Heartbeat
         /// </summary>
@@ -32,9 +44,18 @@ namespace Navigator.ConfigurationAPI.Controllers
         [Produces("application/json", Type = typeof(ServerDiagnostics))]
         public IActionResult Get()
         {
-            Log.Information($"Init:ServerDiagnostics:{DateTime.UtcNow}");
+            //Log.Information($"Init:ServerDiagnostics:{DateTime.UtcNow}");
 
             var osNameAndVersion = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
+
+            //var endPointConfiguration = new EndPointConfiguration
+            //{
+            //    NavigatorMapsApi = _options.NavigatorMapsApi,
+            //    NavigatorAttractionsApi = _options.NavigatorAttractionsApi,
+            //    NavigatorReportsApi = _options.NavigatorReportsApi,
+            //};
+
+
             var diagnostics = new ServerDiagnostics
             {
                 MachineDate = DateTime.Now,
@@ -49,6 +70,12 @@ namespace Navigator.ConfigurationAPI.Controllers
                 ApplicationName = _env.ApplicationName,
                 EnvironmentName = _env.EnvironmentName,
                 Runtime = GetNetCoreVersion(),
+                //EndPointConfiguration = new EndPointConfiguration
+                //{
+                //    NavigatorMapsApi = _options.NavigatorMapsApi,
+                //    NavigatorAttractionsApi = _options.NavigatorAttractionsApi,
+                //    NavigatorReportsApi = _options.NavigatorReportsApi,
+                //}
             };
 
             diagnostics.MachineTimeZone = TimeZoneInfo.Local.IsDaylightSavingTime(diagnostics.MachineDate) ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName;
@@ -157,7 +184,4 @@ namespace Navigator.ConfigurationAPI.Controllers
         }
     }
 
-
-
-}
 }

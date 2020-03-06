@@ -10,3 +10,8 @@ API  Image | [![Build Status](https://jenkins.navigatorglass.com/buildStatus/ico
 Intergration Testing | [![Build Status](https://jenkins.navigatorglass.com/buildStatus/icon?job=NavigatorAPI/NavigatorReports-test)](https://jenkins.navigatorglass.com/job/NavigatorAPI/job/NavigatorReports-test/)
 Local Image | [![Build Status](https://jenkins.navigatorglass.com/buildStatus/icon?job=NavigatorAPI/NavigatorReports-local)](https://jenkins.navigatorglass.com/job/NavigatorAPI/job/NavigatorReports-local/)
 
+Env 
+
+```
+EndPointConfiguration__NavigatorMapsApi : http://maps-api.com
+```
