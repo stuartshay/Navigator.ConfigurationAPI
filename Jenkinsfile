@@ -2,7 +2,7 @@ node('buildx') {
     
     String version_prefix = '6.6.1-v1'
     String version_suffix = ''
-    String docker_image_name = 'stuartshay/Navigator.ConfigurationAPI'
+    String docker_image_name = 'stuartshay/navigator-configuration-api'
     String docker_file = 'docker/navigator-configuration-api-build.dockerfile/Dockerfile'
     String docker_ignore = 'docker/navigator-configuration-api-build.dockerfile/.dockerignore'
     String git_path = 'docker/navigator-configuration-api-build.dockerfile' 
