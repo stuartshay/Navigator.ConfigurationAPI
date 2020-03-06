@@ -70,12 +70,12 @@ namespace Navigator.ConfigurationAPI.Controllers
                 ApplicationName = _env.ApplicationName,
                 EnvironmentName = _env.EnvironmentName,
                 Runtime = GetNetCoreVersion(),
-                //EndPointConfiguration = new EndPointConfiguration
-                //{
-                //    NavigatorMapsApi = _options.NavigatorMapsApi,
-                //    NavigatorAttractionsApi = _options.NavigatorAttractionsApi,
-                //    NavigatorReportsApi = _options.NavigatorReportsApi,
-                //}
+                EndPointConfiguration = new EndPointConfiguration
+                {
+                    NavigatorMapsApi = _options.NavigatorMapsApi,
+                    NavigatorAttractionsApi = _options.NavigatorAttractionsApi,
+                    NavigatorReportsApi = _options.NavigatorReportsApi,
+                }
             };
 
             diagnostics.MachineTimeZone = TimeZoneInfo.Local.IsDaylightSavingTime(diagnostics.MachineDate) ? TimeZoneInfo.Local.DaylightName : TimeZoneInfo.Local.StandardName;
