@@ -27,7 +27,6 @@ namespace Navigator.ConfigurationAPI.Controllers
             _options = options.Value.EndPointConfiguration;
         }
 
-
         /// <summary>
         ///  Heartbeat
         /// </summary>
@@ -47,15 +46,6 @@ namespace Navigator.ConfigurationAPI.Controllers
             //Log.Information($"Init:ServerDiagnostics:{DateTime.UtcNow}");
 
             var osNameAndVersion = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
-
-            //var endPointConfiguration = new EndPointConfiguration
-            //{
-            //    NavigatorMapsApi = _options.NavigatorMapsApi,
-            //    NavigatorAttractionsApi = _options.NavigatorAttractionsApi,
-            //    NavigatorReportsApi = _options.NavigatorReportsApi,
-            //};
-
-
             var diagnostics = new ServerDiagnostics
             {
                 MachineDate = DateTime.Now,
