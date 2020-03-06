@@ -5,12 +5,12 @@ node('docker') {
     }
 
    stage('Build & Deploy Docker') {
-        sh '''mv docker/microservice-api-build.dockerfile/.dockerignore .dockerignore
-        docker build -f docker/microservice-api-build.dockerfile/Dockerfile --build-arg BUILD_NUMBER=${BUILD_NUMBER} -t stuartshay/microservice-api:2.2.2-build .'''
+        sh '''mv docker/navigator-configuration-api-build.dockerfile/.dockerignore .dockerignore
+        docker build -f docker/navigator-configuration-api-build.dockerfile/Dockerfile --build-arg BUILD_NUMBER=${BUILD_NUMBER} -t stuartshay/navigator-configuration-api:3.1.1-build .'''
         withCredentials([usernamePassword(credentialsId: 'docker-hub-navigatordatastore', usernameVariable: 'DOCKER_HUB_LOGIN', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {
             sh "docker login -u ${DOCKER_HUB_LOGIN} -p ${DOCKER_HUB_PASSWORD}"
         }
-        sh '''docker push stuartshay/microservice-api:2.2.2-build'''
+        sh '''docker push stuartshay/navigator-configuration-api:3.1.1-build'''
     }
 
 
