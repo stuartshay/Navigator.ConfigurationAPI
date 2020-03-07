@@ -10,8 +10,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY .  /app
 WORKDIR /app
 
-RUN dotnet build 
-
 WORKDIR /app/src/Navigator.ConfigurationAPI
 RUN dotnet publish -c Release -o /publish 
 
