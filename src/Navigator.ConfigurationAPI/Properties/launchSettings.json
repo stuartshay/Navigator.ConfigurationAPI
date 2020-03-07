@@ -21,7 +21,9 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "EndPointConfiguration__NavigatorMapsApi": "http://mapsapi",
+        "EndPointConfiguration__NavigatorAttractionsApi": "http://attractions-api",
+        "EndPointConfiguration__NavigatorMapsApi": "http://maps-api",
+        "EndPointConfiguration__NavigatorReportsApi": "http://reports-apl",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"

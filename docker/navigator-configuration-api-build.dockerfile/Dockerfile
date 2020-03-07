@@ -12,7 +12,6 @@ COPY /src  /src
 WORKDIR /src/Navigator.ConfigurationAPI
 RUN dotnet publish -c Release -o /publish 
 
-
 # Relase 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim 
 
@@ -21,5 +20,6 @@ COPY --from=build-env /publish .
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 3000
 
 ENTRYPOINT ["dotnet", "Navigator.ConfigurationAPI.dll"]

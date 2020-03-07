@@ -7,8 +7,11 @@
 ------------ | -------------
 API  Image | [![Build Status](https://jenkins.navigatorglass.com/buildStatus/icon?job=NavigatorAPI/Navigator.ConfigurationAPI)](https://jenkins.navigatorglass.com/job/NavigatorAPI/job/Navigator.ConfigurationAPI/)
 
-Env 
+### Environment Variables
 
 ```
-EndPointConfiguration__NavigatorMapsApi : http://maps-api.com
+- EndPointConfiguration__NavigatorMapsApi=http://maps-api
+- EndPointConfiguration__NavigatorAttractionsApi=http://attractions-api
+- EndPointConfiguration__NavigatorReportsApi=http://reports-apl
 ```
+
