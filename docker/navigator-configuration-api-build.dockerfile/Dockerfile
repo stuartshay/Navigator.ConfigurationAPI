@@ -7,13 +7,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tree \
  && rm -rf /var/lib/apt/lists/*
 
-COPY .  /app
-WORKDIR /app
-
-
+COPY /src  /src
+WORKDIR /src
 RUN ls
 
-WORKDIR /app/Navigator.ConfigurationAPI
+
+
+WORKDIR /src/Navigator.ConfigurationAPI
 RUN ls
 
 
