@@ -8,33 +8,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
 COPY /src  /src
-WORKDIR /src
-RUN ls
-
-
 
 WORKDIR /src/Navigator.ConfigurationAPI
-RUN ls
-
-
-
 RUN dotnet publish -c Release -o /publish 
 
 
+# Relase 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim 
 
 WORKDIR /publish
 COPY --from=build-env /publish .
-
-
-#FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS publish
-#WORKDIR /app/src/Navigator.ConfigurationAPI
-#RUN dotnet publish -c Release -o /publish 
-
-
-#FROM base AS final
-#WORKDIR /app
-#COPY --from=build-env /publish .
 
 EXPOSE 80
 EXPOSE 443
