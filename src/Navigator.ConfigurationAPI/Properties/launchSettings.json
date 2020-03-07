@@ -20,7 +20,6 @@
     "Navigator.ConfigurationAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/Diagnostics",
       "environmentVariables": {
         "EndPointConfiguration__NavigatorMapsApi": "http://mapsapi",
         "ASPNETCORE_ENVIRONMENT": "Development"

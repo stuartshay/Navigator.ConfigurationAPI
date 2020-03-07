@@ -4,9 +4,10 @@ services:
 
   navigator-configuration-api:
     container_name: 'navigator-configuration-api'
-    image: "stuartshay/navigator-configuration-api:3.1.1.22"
+    image: "stuartshay/navigator-configuration-api:3.1.1.23"
     environment:
      - ASPNETCORE_ENVIRONMENT=Docker
+     - EndPointConfiguration__NavigatorMapsApi=http://mapsapi
     ports:
      - "80:80"
     networks:
