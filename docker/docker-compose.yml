@@ -2,27 +2,16 @@ version: '3.3'
 
 services:
 
-  microservice-api:
-    container_name: 'microservice-api'
-    image: "stuartshay/microservice-api:2.2.2-build"
+  navigator-configuration-api:
+    container_name: 'navigator-configuration-api'
+    image: "stuartshay/navigator-configuration-api:3.1.1.22"
     environment:
      - ASPNETCORE_ENVIRONMENT=Docker
-     - ConnectionStrings:PostgreSql=User ID=postgres;Password=password;Server=database;Port=5432;Database=postgres;Integrated Security=true;Pooling=true;
     ports:
-     - "5000:5000"
+     - "80:80"
     networks:
-      - microservice-network
-
-  database:
-    container_name: 'database'
-    image: "stuartshay/microservice-database:v1"
-    ports:
-     - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: password
-    networks:
-      - microservice-network
+      - navigator-network
 
 networks:
-  microservice-network:
+  navigator-network:
 
