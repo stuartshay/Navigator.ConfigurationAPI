@@ -46,6 +46,7 @@ namespace Navigator.ConfigurationAPI.Controllers
             //Log.Information($"Init:ServerDiagnostics:{DateTime.UtcNow}");
 
             var osNameAndVersion = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
+            
             var diagnostics = new ServerDiagnostics
             {
                 MachineDate = DateTime.Now,
@@ -62,9 +63,9 @@ namespace Navigator.ConfigurationAPI.Controllers
                 Runtime = GetNetCoreVersion(),
                 EndPointConfiguration = new EndPointConfiguration
                 {
-                    NavigatorMapsApi = _options.NavigatorMapsApi,
-                    NavigatorAttractionsApi = _options.NavigatorAttractionsApi,
-                    NavigatorReportsApi = _options.NavigatorReportsApi,
+                    NavigatorMapsApi = _options?.NavigatorMapsApi,
+                    NavigatorAttractionsApi = _options?.NavigatorAttractionsApi,
+                    NavigatorReportsApi = _options?.NavigatorReportsApi,
                 }
             };
 
