@@ -20,6 +20,6 @@ COPY --from=build-env /publish .
 
 EXPOSE 80
 EXPOSE 443
-EXPOSE 3000
+EXPOSE 7300
 
 ENTRYPOINT ["dotnet", "Navigator.ConfigurationAPI.dll"]
