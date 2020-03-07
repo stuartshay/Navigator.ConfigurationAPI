@@ -12,11 +12,14 @@ COPY /src  /src
 WORKDIR /src/Navigator.ConfigurationAPI
 RUN dotnet publish -c Release -o /publish 
 
-# Relase 
+# Release
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim 
 
 WORKDIR /publish
 COPY --from=build-env /publish .
+
+# Set environment variables
+ENV ASPNETCORE_URLS http://*:7300
 
 EXPOSE 80
 EXPOSE 443
